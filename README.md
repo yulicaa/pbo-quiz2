@@ -66,4 +66,5 @@ tidak sesuai dengan instruksi dan diperbaiki sebelum batas pengumpulan.**
 
 ![Output](images/8.png)
 
+- Tambahkan error handling untuk hal-hal yang mungkin terjadi, contoh: error yang terjadi jika item belum dipilih pada saat proses **Add** atau **Remove**
 - Jika anda telah selesai melakukan pengerjaan, lakukan **pull request** melalui tombol hijau yang akan muncul di sebelah kanan atas halaman project fork anda!
