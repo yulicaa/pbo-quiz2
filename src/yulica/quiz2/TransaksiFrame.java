@@ -207,7 +207,20 @@ public class TransaksiFrame extends javax.swing.JFrame {
         return this.tabelModel.getRowCount() <= 0;
     }
     
-    
+    // pengecekan item double yang terpilih pada item sebelumnya
+    private  boolean Duplicate(String nama){
+        boolean result = false;
+        ArrayList<String> item = new ArrayList<>();
+        for(int i = 0; i < tabelModel.getRowCount(); i++){
+            item.add(tabelModel.getValueAt(i, 0).toString());
+        }
+        for(String i : item){
+            if(i.equals(nama)){
+                result = true;
+            }
+        }
+        return result;
+    }
     
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         this.itemText.setText("1");
@@ -234,7 +247,14 @@ public class TransaksiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
+        String nama = this.itemComboBox.getSelectedItem().toString();
+        int jumlah = new Integer(this.itemText.getText());
+        if(Duplicate(nama)){
+            updateJumlah(nama, jumlah);
+        }else{
+            tabelModel.addRow(addItem(nama, jumlah));
+        }
+        this.belanja();    
     }//GEN-LAST:event_addButtonActionPerformed
 
     /**
