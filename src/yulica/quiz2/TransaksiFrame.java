@@ -237,6 +237,23 @@ public class TransaksiFrame extends javax.swing.JFrame {
         }
     }
     
+    //menambahkan object(nama, harga, jumlah) item
+    private  Object[] addItem(String nama, int jumlah){
+        float harga = 0;
+        ComboBoxModel items = new ComboBoxModel();
+        for(int i = 0 ; i < items.getHargaBarang().size(); i++){
+            if(nama.equalsIgnoreCase(items.getJenisNama().get(i))){
+            harga = items.getHargaBarang().get(i);
+            }
+        }
+        Object[] obj = {
+            nama,
+            harga,
+            jumlah
+        };
+        return obj;
+    }
+    
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
         this.itemText.setText("1");
         this.newButton.setEnabled(false);
