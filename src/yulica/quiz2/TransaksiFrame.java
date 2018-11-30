@@ -207,7 +207,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
         return this.tabelModel.getRowCount() <= 0;
     }
     
-    // pengecekan item double yang terpilih pada item sebelumnya
+    // pengecekan item agar tidak terjadi duplikasi
     private  boolean Duplicate(String nama){
         boolean result = false;
         ArrayList<String> item = new ArrayList<>();
@@ -220,6 +220,21 @@ public class TransaksiFrame extends javax.swing.JFrame {
             }
         }
         return result;
+    }
+    
+    // update fungsi jumlah 
+    // jika terdapat item yg diinginkan lagi
+    private  void updateJumlah(String nama, int add){
+        ArrayList<String> item = new ArrayList<>();
+        for(int i = 0; i < tabelModel.getRowCount(); i++){
+            item.add(tabelModel.getValueAt(i, 0).toString());
+        }
+        for(int i = 0; i < item.size(); i++){
+            if(item.get(i).equals(nama)){
+                int jumlah = new Integer (tabelModel.getValueAt(i, 2).toString());
+                tabelModel.setValueAt(jumlah + add, i, 2);
+            }
+        }
     }
     
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
