@@ -27,7 +27,14 @@ class ComboBoxModel {
         return str;
     }
     
-    
+    // ArrayList untuk mendapatkan harga barang
+    public ArrayList<Float> getHargaBarang(){
+        ArrayList<Float> flt = new ArrayList<>();
+        for(float item : this.items.values()){
+            flt.add(item);
+        }
+        return flt;
+    }
     
     // menambahkan item ke daftar belanja
     public void tambahItem(String nama, float harga){
