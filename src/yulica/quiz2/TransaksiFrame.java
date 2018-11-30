@@ -44,7 +44,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
         newButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         itemComboBox = new javax.swing.JComboBox<>();
-        jTextField2 = new javax.swing.JTextField();
+        itemText = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -79,7 +79,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
         itemComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Kopi", "Susu", "Gula" }));
         itemComboBox.setSelectedIndex(-1);
 
-        jTextField2.setText("1");
+        itemText.setText("1");
 
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -131,7 +131,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(itemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+                                .addComponent(itemText, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
@@ -156,7 +156,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(itemComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(itemText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addButton))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -210,7 +210,13 @@ public class TransaksiFrame extends javax.swing.JFrame {
     
     
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-    
+        this.itemText.setText("1");
+        this.newButton.setEnabled(false);
+        this.cancelButton.setEnabled(true);
+        this.addButton.setEnabled(true);
+        this.itemText.setEnabled(true);
+        this.itemComboBox.setEnabled(true);
+        this.codeText.setText(this.setCode());
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
@@ -271,12 +277,12 @@ public class TransaksiFrame extends javax.swing.JFrame {
     private javax.swing.JButton cancelButton;
     private javax.swing.JTextField codeText;
     private javax.swing.JComboBox<String> itemComboBox;
+    private javax.swing.JTextField itemText;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton newButton;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton saveButton;
