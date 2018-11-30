@@ -1,29 +1,26 @@
 package yulica.quiz2;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
  * @author Yulica
  */
 class ComboBoxModel {
-    private ArrayList<Item> items; //variabel untuk menyimpan objek item
+    private HashMap<String, Float> items = new HashMap<>(); //variabel HashMap untuk menyimpan objek item
 
     // konstruktor untuk combo box model
     public ComboBoxModel() {
-        this.items = new ArrayList<>();
+        this.items.put("Kopi", new Float(5000));
+        this.items.put("Susu", new Float(15000));
+        this.items.put("Gula", new Float(20000));
     }
     
-    public Item[] toArray() {
-        Item[] items = new Item[this.items.size()];
-        for(int i = 0; i < items.length; i++) {
-            items[i] = this.items.get(i);
-        }
-        return items;
-    }
+
     
-    // menambahkan item ke keranjang belanja
-    public void tambahItem(Item item){
-        this.items.add(item);
+    // menambahkan item ke daftar belanja
+    public void tambahItem(String nama, float harga){
+        this.items.put(nama, harga);
     }
 }
