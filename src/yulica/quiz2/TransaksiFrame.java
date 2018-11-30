@@ -173,6 +173,17 @@ public class TransaksiFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    //men disable tombol remove dan save jika isi table kosong
+    private void belanja(){
+        if(isEmpty()){
+            this.saveButton.setEnabled(false);
+            this.removeButton.setEnabled(false);
+        }else{
+            this.saveButton.setEnabled(true);
+            this.removeButton.setEnabled(true);
+        }
+    }
+    
     //untuk men set code pembelian
     private String setCode() {
         this.incId();
@@ -195,6 +206,8 @@ public class TransaksiFrame extends javax.swing.JFrame {
     private boolean isEmpty(){
         return this.tabelModel.getRowCount() <= 0;
     }
+    
+    
     
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
     
