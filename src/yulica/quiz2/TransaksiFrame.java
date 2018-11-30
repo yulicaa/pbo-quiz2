@@ -237,6 +237,22 @@ public class TransaksiFrame extends javax.swing.JFrame {
         }
     }
     
+    // jika melakukan transaksi baru 
+    private  void newTransaksi(){
+        this.itemText.setText("");
+        this.codeText.setText("");
+        this.newButton.setEnabled(true);
+        this.saveButton.setEnabled(false);
+        this.cancelButton.setEnabled(false);
+        this.addButton.setEnabled(false);
+        this.removeButton.setEnabled(false);
+        this.removeButton.setEnabled(false);
+        this.itemText.setEnabled(false);
+        this.itemComboBox.setEnabled(false);
+        this.tabelModel.setRowCount(0);
+        this.dftrBelanja.clear();
+    }
+    
     //menambahkan object(nama, harga, jumlah) item
     private  Object[] addItem(String nama, int jumlah){
         float harga = 0;
