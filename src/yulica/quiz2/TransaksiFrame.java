@@ -11,6 +11,9 @@ import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.util.*;
+import yulica.quiz2.Transaksi.*;
+
 
 /**
  *
@@ -47,7 +50,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
         itemText = new javax.swing.JTextField();
         addButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        transaksiTabel = new javax.swing.JTable();
         saveButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
         removeButton = new javax.swing.JButton();
@@ -88,8 +91,8 @@ public class TransaksiFrame extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(this.tabelModel);
-        jScrollPane1.setViewportView(jTable1);
+        transaksiTabel.setModel(this.tabelModel);
+        jScrollPane1.setViewportView(transaksiTabel);
 
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -204,7 +207,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
     
     // pengecekan jika isi tabel kosong
     private boolean isEmpty(){
-        return this.tabelModel.getRowCount() <= 0;
+        return this.transaksiTabel.getModel().getRowCount() <= 0;
     }
     
     // pengecekan item agar tidak terjadi duplikasi
@@ -281,7 +284,18 @@ public class TransaksiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-    
+        // mengecek apakah ada baris yang dipilih
+        if(transaksiTabel.getSelectedRow() <0){
+            String sbr = "Pilih item yang ingin dihapus!";
+            JOptionPane.showMessageDialog(this, sbr,"Information",JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            // jika ada baris yang dipilih, maka baris itu akan dihapus
+            int count = transaksiTabel.getSelectedRows().length;
+            for(int i = 0; i < count; i++){
+                tabelModel.removeRow(transaksiTabel.getSelectedRow());
+            }
+        }
+            this.belanja();
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -350,9 +364,9 @@ public class TransaksiFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JButton newButton;
     private javax.swing.JButton removeButton;
     private javax.swing.JButton saveButton;
+    private javax.swing.JTable transaksiTabel;
     // End of variables declaration//GEN-END:variables
 }
