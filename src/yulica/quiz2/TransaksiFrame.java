@@ -299,7 +299,8 @@ public class TransaksiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-       
+        newTransaksi();
+        this.decId(); 
         
     }//GEN-LAST:event_cancelButtonActionPerformed
 
