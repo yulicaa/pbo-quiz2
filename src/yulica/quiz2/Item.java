@@ -31,27 +31,32 @@ public class Item {
         this.jumlah = jumlah;
     }
     
-    // menambahkan method getter setter untuk item
+    // menambahkan method getter untuk nama item
     public String getNama() {
         return nama;
     }
-
+    
+    // menambahkan method setter untuk nama item
     public void setNama(String nama) {
         this.nama = nama;
     }
-
+    
+    // menambahkan method getter untuk harga item
     public float getHarga() {
         return harga;
     }
-
+    
+    // menambahkan method setter untuk harga item
     public void setHarga(float harga) {
         this.harga = harga;
     }
-
+    
+    // menambahkan method getter untuk jumlah item
     public int getJumlah() {
         return jumlah;
     }
-
+    
+    // menambahkan method setter untuk jumlah item
     public void setJumlah(int jumlah) {
         this.jumlah = jumlah;
     }
