@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -172,6 +173,7 @@ public class TransaksiFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    //untuk men set code pembelian
     private String setCode() {
         this.incId();
         String dt = new SimpleDateFormat("yyMMdd").format(new Date()); //mendapatkan tanggal hari ini sbg string
@@ -188,12 +190,18 @@ public class TransaksiFrame extends javax.swing.JFrame {
     private void decId() {
         this.id -= 1;
     }
+    
+    // pengecekan jika isi tabel kosong
+    private boolean isEmpty(){
+        return this.tabelModel.getRowCount() <= 0;
+    }
+    
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
     
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
-      
+    
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -202,17 +210,12 @@ public class TransaksiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        try {
-            for (int i = 0; i < 10; i++) {
-                
-            }
-        } catch (Exception e) {
-        }
+        
         
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_addButtonActionPerformed
 
     /**
