@@ -305,7 +305,30 @@ public class TransaksiFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-        
+            try{
+            // loop setiap tabel
+            for(int i = 0; i < tabelModel.getRowCount(); i++){
+                //menyimpan nama dan jumlah menjadi variable
+                String nama = tabelModel.getValueAt(i, 0).toString();
+                float harga = new Float(tabelModel.getValueAt(i, 1).toString());
+                int jumlah = new Integer(tabelModel.getValueAt(i, 2).toString());
+                this.dftrBelanja.add(new Item(nama, harga, jumlah));
+            }
+            //Transaksi dengan kode dan comitted belanja
+            Transaksi transaksi = new Transaksi(this.kode, this.dftrBelanja);
+            //menangani output transaksi
+            StringBuilder sbr = new StringBuilder();
+            //menambahkan hasil transaksi
+            sbr.append(transaksi.Pembayaran());
+            // memanggil dialog
+            JOptionPane.showMessageDialog(this, sbr, "Transaksi : " , JOptionPane.INFORMATION_MESSAGE);
+            // melakukan transaksi baru
+            newTransaksi();
+            
+            
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         
     }//GEN-LAST:event_saveButtonActionPerformed
 
